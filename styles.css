@@ -1,0 +1,258 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(31, 111, 235, 0.35), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(137, 87, 229, 0.35), transparent 40%),
+    #0d1117;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+  color: #ffffff;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  background: rgba(22, 27, 34, 0.95);
+  border: 1px solid #30363d;
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.header h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.header p {
+  color: #8b949e;
+  font-size: 15px;
+}
+
+/* ── Input ── */
+.input-area {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 13px 16px;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input-area input:focus {
+  border-color: #58a6ff;
+}
+
+.input-area input::placeholder {
+  color: #484f58;
+}
+
+.input-area button {
+  padding: 13px 20px;
+  background: #238636;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.input-area button:hover {
+  background: #2ea043;
+  transform: translateY(-2px);
+}
+
+/* ── Filtros ── */
+.filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.filter-btn {
+  flex: 1;
+  padding: 9px;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  color: #8b949e;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.filter-btn:hover {
+  border-color: #58a6ff;
+  color: #58a6ff;
+}
+
+.filter-btn.active {
+  background: #58a6ff;
+  border-color: #58a6ff;
+  color: #0d1117;
+  font-weight: bold;
+}
+
+/* ── Lista de tareas ── */
+#task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 60px;
+  margin-bottom: 24px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  transition: 0.3s ease;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.task-item:hover {
+  border-color: #58a6ff;
+}
+
+.task-item.completed {
+  opacity: 0.5;
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: #8b949e;
+}
+
+.task-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #30363d;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: 0.3s ease;
+  font-size: 12px;
+}
+
+.task-item.completed .task-checkbox {
+  background: #238636;
+  border-color: #238636;
+}
+
+.task-text {
+  flex: 1;
+  font-size: 15px;
+  color: #c9d1d9;
+  word-break: break-word;
+}
+
+.task-delete {
+  background: transparent;
+  border: none;
+  color: #484f58;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: 0.3s ease;
+  flex-shrink: 0;
+}
+
+.task-delete:hover {
+  color: #f85149;
+  background: rgba(248, 81, 73, 0.1);
+}
+
+/* ── Footer ── */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #30363d;
+}
+
+#task-count {
+  color: #8b949e;
+  font-size: 14px;
+}
+
+#clear-btn {
+  background: transparent;
+  border: 1px solid #30363d;
+  color: #8b949e;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#clear-btn:hover {
+  border-color: #f85149;
+  color: #f85149;
+}
+
+/* ── Responsive ── */
+@media (max-width: 500px) {
+  .container {
+    padding: 24px 18px;
+  }
+
+  .header h1 {
+    font-size: 26px;
+  }
+
+  .input-area {
+    flex-direction: column;
+  }
+
+  .input-area button {
+    width: 100%;
+  }
+}
